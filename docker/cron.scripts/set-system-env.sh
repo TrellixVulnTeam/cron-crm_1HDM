@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Set system wide environment variables for cron to have access to them
+echo "MYSQL_HOST=$MYSQL_HOST" >> /etc/environment
 echo "MYSQL_DATABASE=$MYSQL_DATABASE" >> /etc/environment
 echo "MYSQL_PASSWORD=$MYSQL_PASSWORD" >> /etc/environment
 echo "MYSQL_USER=$MYSQL_USER" >> /etc/environment

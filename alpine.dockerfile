@@ -1,15 +1,15 @@
-FROM ubuntu:14.04
+FROM alpine:latest
 
-MAINTAINER nohona <nohona@hotmail.com>
+MAINTAINER Michael Witt <mikelwitt@gmail.com>
 
 # Install pip and aws cli
-RUN apt-get update && apt-get install -y python-pip \
+RUN apk add --update \
+        python \
         python-dev \
-        build-essential \
-        cron \
-        mysql-client \
-        && pip install --upgrade pip \
-        && pip install --upgrade --user awscli \
+        py-pip \
+        build-base \
+        dcron \
+        && pip install --upgrade pip --user awscli \
         && mkdir /mysql_scripts \
         && mkdir /etc/letsencrypt
 
@@ -23,8 +23,6 @@ RUN chmod +rx /mysql_scripts/*.sh \
     && touch /var/log/cron.log
 
 WORKDIR /mysql_scripts
-
-VOLUME /etc/letsencrypt
 
 ENTRYPOINT ["./set-system-env.sh"]
 
