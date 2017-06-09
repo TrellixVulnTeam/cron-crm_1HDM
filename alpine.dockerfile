@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-MAINTAINER Michael Witt <mikelwitt@gmail.com>
+MAINTAINER nohona <nohona@hotmail.com>
 
 # Install pip and aws cli
 RUN apk add --update \

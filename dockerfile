@@ -10,8 +10,7 @@ RUN apt-get update && apt-get install -y python-pip \
         mysql-client \
         && pip install --upgrade pip \
         && pip install --upgrade --user awscli \
-        && mkdir /mysql_scripts \
-        && mkdir /etc/letsencrypt
+        && mkdir /mysql_scripts
 
 COPY    ./usr/local/letsencrypt /usr/local/letsencrypt
 COPY    ./docker/cron.scripts/dbbackup.sh /mysql_scripts
@@ -24,12 +23,10 @@ RUN chmod +rx /mysql_scripts/*.sh \
 
 WORKDIR /mysql_scripts
 
-VOLUME /etc/letsencrypt
-
 ENTRYPOINT ["./set-system-env.sh"]
 
 # To build:
-# docker build -f dockerfile -t <user-name>/cron_crm:latest .
+# docker build -f dockerfile -t <user-name>/cron-crm:latest .
 
 # To run:
 # docker run -d -t -i -e MYSQL_ROOT_PASSWORD='<password>' \
@@ -38,8 +35,8 @@ ENTRYPOINT ["./set-system-env.sh"]
 #   -e MYSQL_PASSWORD='<user-password>' -e S3_URL='<sr-url>' \
 #   -e AWS_ACCESS_KEY_ID='<aws-key>' \
 #   -e AWS_SECRET_ACCESS_KEY='<aws-secret>' \
-#   --name cron_crm <dockerhub-user-name>/cron_crm:latest
+#   --name cron-crm <dockerhub-user-name>/cron-crm:latest
 
 # Container shell access:
-# docker exec -it cron_crm bash
-# docker logs cron_crm
+# docker exec -it cron-crm bash
+# docker logs cron-crm
