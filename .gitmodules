@@ -1,3 +1,0 @@
-[submodule "/usr/local/certbot"]
-  path = /usr/local/certbot
-  url = git@github.com:certbot/certbot.git
