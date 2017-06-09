@@ -16,7 +16,7 @@ A cron job is then getting the from the S3 location updating it to apache.
 Download files from Github
 
 ```bash
-git clone https://github.com/letsencrypt/letsencrypt /usr/local/letsencrypt
+git clone https://github.com/certbot/certbot /usr/local/certbot
 ```
 
 * To build:

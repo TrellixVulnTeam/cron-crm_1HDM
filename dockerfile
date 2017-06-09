@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y python-pip \
         && pip install --upgrade --user awscli \
         && mkdir /mysql_scripts
 
-COPY    ./usr/local/letsencrypt /usr/local/letsencrypt
+COPY    ./usr/local/certbot /usr/local/certbot
 COPY    ./docker/cron.scripts/dbbackup.sh /mysql_scripts
 COPY    ./docker/cron.scripts/set-system-env.sh /mysql_scripts
 COPY    ./docker/cron.scripts/dbbackup-daily-cron /etc/cron.d
