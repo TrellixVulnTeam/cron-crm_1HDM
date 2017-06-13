@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y python-pip \
         build-essential \
         cron \
         mysql-client \
+        wget \
+        unzip \
         && pip install --upgrade pip \
         && pip install --upgrade --user awscli \
         && mkdir /mysql_scripts \
