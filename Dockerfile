@@ -2,6 +2,9 @@ FROM ubuntu:14.04
 
 MAINTAINER nohona <nohona@hotmail.com>
 
+LABEL version 1.0
+LABEL description "Cron with mysql client db backup script, aws cli"
+
 # Install pip and aws cli
 RUN apt-get update && apt-get install -y python-pip \
         python-dev \
@@ -10,9 +13,11 @@ RUN apt-get update && apt-get install -y python-pip \
         mysql-client \
         && pip install --upgrade pip \
         && pip install --upgrade --user awscli \
-        && mkdir /mysql_scripts
+        && mkdir /mysql_scripts \
+        && wget https://github.com/certbot/certbot/archive/master.zip -P /usr/local \
+        && unzip /usr/local/master.zip -d /usr/local \
+        && rm /usr/local/master.zip
 
-COPY    ./usr/local/certbot /usr/local/certbot
 COPY    ./docker/cron.scripts/dbbackup.sh /mysql_scripts
 COPY    ./docker/cron.scripts/set-system-env.sh /mysql_scripts
 COPY    ./docker/cron.scripts/dbbackup-daily-cron /etc/cron.d
@@ -26,7 +31,7 @@ WORKDIR /mysql_scripts
 ENTRYPOINT ["./set-system-env.sh"]
 
 # To build:
-# docker build -f dockerfile -t <user-name>/cron-crm:latest .
+# docker build -t <user-name>/cron-crm:latest .
 
 # To run:
 # docker run -d -t -i -e MYSQL_ROOT_PASSWORD='<password>' \

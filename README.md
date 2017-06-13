@@ -9,16 +9,6 @@ Github: [nohona/cron-crm](https://github.com/nohona/cron-crm)
 
 ## Installation
 
-#### Let' Encrypt Setup
-
-Keeping things in a safe place, I auto generate the certs in (place TBD) and copy them to AWS S3.
-A cron job is then getting the from the S3 location updating it to apache.  
-Download files from Github
-
-```bash
-git clone https://github.com/certbot/certbot /usr/local/certbot
-```
-
 * To build:
 ```bash
 docker build -f dockerfile -t nohona/cron-crm:latest .
