@@ -1,1 +1,0 @@
-00 01 * * * root /mysql_scripts/dbbackup.sh >> /var/log/cron.log 2>&1

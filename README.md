@@ -1,5 +1,9 @@
 # Cron Jobs for MySQL 
 
+##To Do's:
+* Shell script backup, add if clause to for dev vs. prod
+* More environment variables for more cron functionality
+
 ## Description
 Cron jobs SugarCRM DB backup to AWS S3 and let's encrypt cert update, based on environment variables 
 

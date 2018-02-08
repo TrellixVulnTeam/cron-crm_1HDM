@@ -1,0 +1,2 @@
+00 01 * * * root /mysql_scripts/dbbackup.sh >> /var/log/cron.log 2>&1
+30 3 1 */2 * root /mysql_scripts/cert-update.sh >> /var/log/cron.log 2>&1

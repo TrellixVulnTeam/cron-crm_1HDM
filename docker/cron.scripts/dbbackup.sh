@@ -15,5 +15,3 @@ find $FILEPATH -name "*_mre_*" -exec rm {} +
 echo "operation finished at $(date +'%d-%m-%Y %H:%M:%S')" >> $LOGFILE
 echo "*************************" >> "$LOGFILE"
 exit 0
-
-

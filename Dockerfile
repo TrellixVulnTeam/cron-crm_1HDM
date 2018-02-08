@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y python-pip \
 
 COPY    ./docker/cron.scripts/dbbackup.sh /mysql_scripts
 COPY    ./docker/cron.scripts/set-system-env.sh /mysql_scripts
-COPY    ./docker/cron.scripts/dbbackup-daily-cron /etc/cron.d
+COPY    ./docker/cron.scripts/crm-cron /etc/cron.d
 
 # Make shell scripts executable, create cron.log file
 RUN chmod +rx /mysql_scripts/*.sh \
